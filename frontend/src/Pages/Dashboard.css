@@ -1,0 +1,13 @@
+.dashboard {
+    width: 1080px;
+    margin: 0 auto;
+
+}
+
+.dashboard-header{
+    text-align: center;
+    margin-top: 0.5rem;
+}
+.dashboard-header span {
+    color: rgb(253, 122, 46);
+}

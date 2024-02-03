@@ -1,0 +1,33 @@
+.header-container{
+    background-color: black;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0.5rem 0;
+    width: 1080px;
+}
+#orangeNotesLogo{
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+#OrangeNotes{
+    font-size: 2rem;
+    font-weight: 600;
+    color: rgb(253, 122, 46);
+}
+
+.headLogin{
+    background-color: black;
+    color: white;
+    padding: 0.5rem 0.7rem;
+}
+.headSignup{
+    background-color: rgb(253, 122, 46);
+    padding: 0.5rem 0.6rem;
+}

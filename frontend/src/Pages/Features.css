@@ -1,0 +1,17 @@
+.feature-card-container{
+    margin-top: 1rem;
+    display: flex;
+    width: 1080px;
+    margin: 1rem auto;
+    flex-wrap: wrap;
+    gap: 1.8rem;
+    justify-content: space-between;
+}
+.featureCard{
+    position: relative;
+    border: 2px solid rgb(253, 122, 46);
+    border-radius: 8px;
+    width: 20rem;
+    padding: 1rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}

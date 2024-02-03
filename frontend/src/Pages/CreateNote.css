@@ -1,0 +1,55 @@
+.editor-container {
+    width: 1080px;
+    margin: 1rem auto;
+    /* border: 2px solid red; */
+}
+
+.editorbtn {
+    display: flex;
+    gap: 1rem;
+}
+
+.savebtn {
+    display: flex;
+    padding: 0.6rem 1.5rem;
+    min-width: 6rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border: none;
+    color: black;
+    background-color: rgb(253, 122, 46);
+    border-radius: 6px;
+    margin: 1rem 0;
+    cursor: pointer;
+}
+
+.resetbtn {
+    background-color: white;
+    border: 2px solid rgb(253, 122, 46);
+}
+
+.createNotesTitleContainer {
+    display: flex;
+    padding: 1rem 0;
+    position: relative;
+}
+
+.createNotesTitleContainer input {
+    width: 100%;
+    height: 2rem;
+    margin: 0 1rem;
+    border: 2px solid rgb(253, 122, 46);
+    outline: none;
+    border-radius: 5px;
+    padding-left: 0.8rem;
+    font-size: 1.3rem;
+}
+
+#createNotesTitle {
+    font-size: 1.5rem;
+    color: rgb(253, 122, 46);
+    font-weight: 600;
+
+}
