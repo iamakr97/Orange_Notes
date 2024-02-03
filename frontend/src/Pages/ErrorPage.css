@@ -1,0 +1,27 @@
+.ErrorPage {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.ErrorPage h1 {
+    font-size: 8rem;
+    opacity: 0.5;
+}
+.ErrorPage p {
+    font-size: 2rem;
+    font-weight: 500;
+}
+.ErrorPage a {
+    text-decoration: none;
+    border: none;
+    color: black;
+    background-color: rgb(253, 122, 46);
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 450;
+}

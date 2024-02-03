@@ -19,8 +19,8 @@ function Testimonials() {
       <Slider {...settings}>
         {
           TestimonialData.map((test) => {
-            return <div className='testimonialCard'>
-              <h2 style={{marginBottom: "1rem"}}>{test.name}</h2>
+            return <div key={test.id} className='testimonialCard'>
+              <h2 style={{ marginBottom: "1rem" }}>{test.name}</h2>
               <p>{test.desc}</p>
             </div>
           })

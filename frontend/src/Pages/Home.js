@@ -62,7 +62,7 @@ function Home() {
         </div>
 
         <div className="home-right">
-          <img src={notesTaking} />
+          <img src={notesTaking} alt='' />
         </div>
 
       </div>
@@ -71,7 +71,7 @@ function Home() {
         <Features />
       </div>
       <Testimonials />
-      <Footer/>
+      <Footer />
     </div >
   );
 }

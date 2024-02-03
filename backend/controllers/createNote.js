@@ -16,18 +16,18 @@ exports.createNote = async (req, res) => {
         const userId = req.user.id;
 
 
-        const newNotes = new noteSchema({title, description, createdAt, user: userId});
+        const newNotes = new noteSchema({ title, description, createdAt, user: userId });
 
         await newNotes.save();
         // updating user , notes id field 
         await userSchema.findByIdAndUpdate(
-            {_id: userId},
+            { _id: userId },
             {
                 $push: {
                     notes: newNotes._id
                 }
             },
-            {new: true}
+            { new: true }
         );
         return res.status(200).json({
             success: true,

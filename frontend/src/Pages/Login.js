@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import axios from 'axios';
 import signup from '../Assets/signup.jpg';
@@ -30,7 +30,7 @@ function Login() {
   function loginHandler(event) {
     event.preventDefault();
     setLoading(true);
-    axios.post('https://orange-notes-a6en.onrender.com/api/v1/login',
+    axios.post(`${process.env.REACT_APP_SERVER_URL}/login`,
       {
         username: loginData.username,
         password: loginData.password
@@ -106,7 +106,7 @@ function Login() {
         </form>
       </div>
       <div className="right-signup">
-        <img src={signup} height={400} />
+        <img src={signup} alt='' height={400} />
       </div>
     </div>
   );

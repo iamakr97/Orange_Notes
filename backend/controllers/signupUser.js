@@ -5,7 +5,7 @@ require('dotenv').config();
 exports.signupUser = async (req, res) => {
     try {
         const { name, username, password, role } = req.body;
-        if(!name || !username || !password) {
+        if (!name || !username || !password) {
             return res.status(401).json({
                 success: false,
                 message: "Please Enter all the details"

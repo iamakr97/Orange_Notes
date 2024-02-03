@@ -18,7 +18,7 @@ exports.editNote = async (req, res) => {
                 message: "Please fill all the details to edit"
             })
         }
-        await noteSchema.findByIdAndUpdate(noteId, {title, description, createdAt: Date.now()}, {new: true});
+        await noteSchema.findByIdAndUpdate(noteId, { title, description, createdAt: Date.now() }, { new: true });
         return res.status(200).json({
             success: true,
             message: "Note updated Successfully"

@@ -7,10 +7,10 @@ import MyNotes from '../Pages/MyNotes';
 
 function Dashboard() {
     const { userName } = useSelector(state => state.auth);
-    const {isAuthenticated} =useSelector(state=>state.auth);
+    const { isAuthenticated } = useSelector(state => state.auth);
     const navigate = useNavigate();
-    useEffect(()=> {
-        if(!isAuthenticated) {
+    useEffect(() => {
+        if (!isAuthenticated) {
             navigate('/');
         }
     }, []);

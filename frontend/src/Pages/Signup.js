@@ -32,7 +32,7 @@ function Signup() {
       return;
     }
 
-    axios.post('https://orange-notes-a6en.onrender.com/api/v1/signup',
+    axios.post(`${process.env.REACT_APP_SERVER_URL}/signup`,
       {
         name: signupData.name,
         username: signupData.username,

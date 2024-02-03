@@ -19,7 +19,7 @@ function EditNote() {
   const [notesTitle, setNotesTitle] = useState('');
   const [content, setContent] = useState('');
   useEffect(() => {
-    if(!isAuthenticated) {
+    if (!isAuthenticated) {
       navigate('/');
     }
     setContent(description);
@@ -50,7 +50,7 @@ function EditNote() {
     }
     setLoading(true);
     const load = toast.loading("Loading...");
-    axios.put(`https://orange-notes-a6en.onrender.com/api/v1/myNotes/${id}`,
+    axios.put(`${process.env.REACT_APP_SERVER_URL}/myNotes/${id}`,
       { title: notesTitle, description: content, token },
       {
         headers: {

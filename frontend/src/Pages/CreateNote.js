@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 function CreateNote() {
-    
+
     const [loading, setLoading] = useState(false);
     const { token, isAuthenticated } = useSelector(state => state.auth)
     const editor = useRef(null);
@@ -17,12 +17,12 @@ function CreateNote() {
     const [content, setContent] = useState('');
     // checking is user is login or not
     const navigate = useNavigate();
-    useEffect(()=> {
-        if(!isAuthenticated) {
+    useEffect(() => {
+        if (!isAuthenticated) {
             navigate('/');
         }
     }, []);
-    
+
     const config = {
         placeholder: 'Start typings...',
         style: {
@@ -46,7 +46,7 @@ function CreateNote() {
         }
         setLoading(true);
         const load = toast.loading("Loading...");
-        axios.post("https://orange-notes-a6en.onrender.com/api/v1/createnote",
+        axios.post(`${process.env.REACT_APP_SERVER_URL}/createnote`,
             { title: notesTitle, description: content, token },
             {
                 headers: {

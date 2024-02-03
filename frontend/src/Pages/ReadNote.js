@@ -9,7 +9,7 @@ function ReadNote() {
             <h2>{title}</h2>
             <div dangerouslySetInnerHTML={{ __html: description }} />
         </div>
-    )
+    );
 }
 
 export default ReadNote;

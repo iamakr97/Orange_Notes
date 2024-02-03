@@ -1,23 +1,23 @@
-.myNotes-card-container{
+.myNotes-card-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
 
-.myNotes-card{
+.myNotes-card {
     border: 2px solid rgb(253, 122, 46);
     margin: 1rem 0;
     padding: 1rem;
     border-radius: 8px;
 }
 
-.card-btn{
+.card-btn {
     display: flex;
     margin-top: 1rem;
     justify-content: space-between;
 }
 
-.read-btn{
+.read-btn {
     font-size: 1rem;
     background-color: rgb(253, 122, 46);
     border: none;
@@ -27,12 +27,12 @@
     cursor: pointer;
 }
 
-.edit-btn{
+.edit-btn {
     font-size: 1rem;
     background-color: transparent;
     border: 2px solid rgb(253, 122, 46);
     border-radius: 5px;
     padding: 0.2rem;
-    text-decoration: none;  
+    text-decoration: none;
     cursor: pointer;
 }

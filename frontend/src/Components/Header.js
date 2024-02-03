@@ -7,7 +7,6 @@ import { logout } from '../redux/slices/auth';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
-
 function Header() {
   const navigate = useNavigate();
   const { isAuthenticated, token } = useSelector(state => state.auth);

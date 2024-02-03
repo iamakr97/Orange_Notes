@@ -24,7 +24,7 @@ function MyNotes() {
   // defining function to fetch all notes ...
   async function fetchNotes() {
     setLoading(true);
-    axios.get('https://orange-notes-a6en.onrender.com/api/v1/myNotes',
+    axios.get(`${process.env.REACT_APP_SERVER_URL}/myNotes`,
       {
         headers: {
           'Content-Type': 'application/json',
@@ -77,10 +77,10 @@ function MyNotes() {
         toast.dismiss(load);
       });
   }
-function dateFormat(myDate) {
-  const momentDate = moment(myDate);
-  return momentDate.format('MMMM Do YYYY, h:mm:ss a');
-}
+  function dateFormat(myDate) {
+    const momentDate = moment(myDate);
+    return momentDate.format('MMMM Do YYYY, h:mm:ss a');
+  }
 
   return (
     <div className='myNotes-card-container'>
@@ -91,7 +91,7 @@ function dateFormat(myDate) {
         ((myNotes.length > 0)
           ?
           myNotes.map((note) => {
-            return <div className='myNotes-card'>
+            return <div key={note._id} className='myNotes-card'>
               {
                 (note.title.length > 20)
                   ?
@@ -100,7 +100,7 @@ function dateFormat(myDate) {
                   <h3>{note.title}</h3>
               }
               <p>{dateFormat(note.createdAt)}</p>
-              
+
               <div className='card-btn'>
                 <button onClick={(e) => readHandler(e, note)} className='read-btn'>Read </button>
                 <button onClick={(e) => editHandler(e, note)} className='edit-btn'>Edit </button>

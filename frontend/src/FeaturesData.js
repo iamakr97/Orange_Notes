@@ -4,7 +4,7 @@ import { BsFillImageFill } from 'react-icons/bs';
 import { RiLoginCircleFill } from 'react-icons/ri';
 import { CgNotes } from 'react-icons/cg';
 import { FcCollaboration } from 'react-icons/fc';
-const style = { color: "rgb(253, 122, 46)", fontSize: "2.5rem"}
+const style = { color: "rgb(253, 122, 46)", fontSize: "2.5rem" }
 let orangeNotesFeatures = [
     {
         desc: "Cloud Storage - All your notes are stored in the cloud, ensuring that you can access them from anywhere and on any device. This feature allows for seamless synchronization and data accessibility.",
