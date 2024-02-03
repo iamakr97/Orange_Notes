@@ -6,7 +6,7 @@ Orange Notes is an innovative Note Taking web Application meticulously crafted u
 
 
 ## Demo Link
-# https://orange-notes-dusky.vercel.app
+## https://orange-notes-dusky.vercel.app
 
 
 
@@ -14,11 +14,12 @@ Orange Notes is an innovative Note Taking web Application meticulously crafted u
 <img width="956" alt="Screenshot 2024-02-04 013410" src="https://github.com/iamakr97/Orange_Notes/assets/122173165/826d71fe-76de-4803-9b8c-f3a493355466">
 
 # Tech Stack Overview: Orange Notes App
-Backend:
+## Backend :-
 
 ## Express.js: 
 Employed as the robust and efficient web application framework, ensuring seamless and scalable server-side operations.
-Mongoose Library: Utilized for streamlined interaction with MongoDB, facilitating smooth data modeling and manipulation.
+## Mongoose Library: 
+Utilized for streamlined interaction with MongoDB, facilitating smooth data modeling and manipulation.
 ## Bcrypt: 
 Implemented for robust password hashing, enhancing the security of user credentials.
 ## Cookie-parser: 
@@ -31,12 +32,11 @@ Incorporated for managing environment variables, safeguarding sensitive informat
 Implemented for secure user authentication, generating and validating JSON web tokens for enhanced data security.
 ## Nodemon: 
 Employed for automatic server restarts during development, optimizing the development workflow.
-APIs:
-
+## Rest APIs:
 Developed comprehensive APIs for user authentication and authorization, employing cookies for secure session management.
 Implemented RESTful APIs for fundamental operations, including creating, deleting, editing, and fetching notes, ensuring a seamless user experience.
 
-## Frontend:
+## Frontend :-
 
 ## ReactJS: 
 Utilized as the powerful and dynamic frontend library, ensuring a responsive and interactive user interface.
