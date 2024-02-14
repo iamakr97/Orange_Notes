@@ -1,12 +1,13 @@
 
 # Orange Notes
 
+## Demo Link : [Orange Notes](https://orange-notes-dusky.vercel.app)
+## https://orange-notes-dusky.vercel.app
+
 Orange Notes is an innovative Note Taking web Application meticulously crafted using the cutting-edge MERN Stack. This platform seamlessly integrates a user-friendly interface with robust functionality, allowing users to effortlessly sign up, log in, and create personalized notes securely stored in a dynamic database. Offering unparalleled flexibility, users can conveniently read, edit, delete, and create notes from any location, ensuring seamless access. The application's aesthetically pleasing and intuitive UI enhances the overall user experience, combining simplicity with sophistication. Orange Notes represents a harmonious blend of advanced technology and user-centric design, promising an unparalleled note-taking experience.
 
 
 
-## Demo Link : [Orange Notes](https://orange-notes-dusky.vercel.app)
-## https://orange-notes-dusky.vercel.app
 
 
 
