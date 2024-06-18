@@ -10,7 +10,6 @@ import ButtonLoading from '../Components/ButtonLoading';
 
 function Login() {
   const { isAuthenticated } = useSelector(store => store.auth);
-  
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -22,7 +21,7 @@ function Login() {
     if(isAuthenticated) {
       navigate('/');
     }
-  }, []);
+  }, [isAuthenticated]);
 
   function inputHandler(event) {
     setLoginData(prev => {
@@ -35,7 +34,6 @@ function Login() {
 
   async function loginHandler(event) {
     event.preventDefault();
-    
     if(isAuthenticated) return;
     setLoading(true);
     await axios.post(`${process.env.REACT_APP_SERVER_URL}/login`,
@@ -103,7 +101,7 @@ function Login() {
               required
             />
           </div>
-          <button className='btnform' >
+          <button className={`btnform ${loading ? 'btn-clicked' : ''}`} type='submit' disabled={loading} >
             {(!loading)
               ?
               <p>Login</p>

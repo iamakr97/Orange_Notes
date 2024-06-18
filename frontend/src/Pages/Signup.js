@@ -1,15 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import axios from 'axios';
 import './Signup.css';
 import signup from '../Assets/signup.jpg';
 import { Link, useNavigate } from 'react-router-dom';
 import ButtonLoading from '../Components/ButtonLoading';
-
+import {useSelector} from 'react-redux';
 
 function Signup() {
+  
+  const { isAuthenticated } = useSelector(store => store.auth);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  useEffect(()=>{
+    if(isAuthenticated) {
+      navigate('/');
+    }
+  },[isAuthenticated])
   const [signupData, setSignupData] = useState({
     name: '',
     username: '',
@@ -24,22 +31,21 @@ function Signup() {
       }
     })
   }
-  function signupHandler(event) {
+  async function signupHandler(event) {
+    if(isAuthenticated) return;
     event.preventDefault();
     setLoading(true);
     if (signupData.choosePassword !== signupData.confirmPassword) {
       toast.error("Password and confirm password does not match")
       return;
     }
-
-    axios.post(`${process.env.REACT_APP_SERVER_URL}/signup`,
+    await axios.post(`${process.env.REACT_APP_SERVER_URL}/signup`,
       {
         name: signupData.name,
         username: signupData.username,
         password: signupData.choosePassword,
         role: "User"
       }).then((response) => {
-        console.log(response);
         if (response.status === 200) {
           toast.success("Signup Successfully");
           setSignupData(
@@ -52,7 +58,6 @@ function Signup() {
           );
           navigate('/login');
         }
-
       })
       .catch((err) => {
         console.log("err message :", err)
@@ -71,7 +76,6 @@ function Signup() {
     <div className='signup-container'>
       <div className="left-signup">
         <form onSubmit={signupHandler}>
-
           <div>
             <label htmlFor="name">Enter Your Name</label>
             <input type="text" id='name' name='name'
@@ -81,7 +85,6 @@ function Signup() {
               required
             />
           </div>
-
           <div>
             <label htmlFor="nausernameme">Enter Username</label>
             <input type="text" id='username' name='username'
@@ -91,7 +94,6 @@ function Signup() {
               required
             />
           </div>
-
           <div>
             <label htmlFor="choosePassword">Enter Password</label>
             <input type="password" id='choosePassword' name='choosePassword'
@@ -101,7 +103,6 @@ function Signup() {
               required
             />
           </div>
-
           <div>
             <label htmlFor="confirmPassword">Confirm Password</label>
             <input type="password" id='confirmPassword' name='confirmPassword'
@@ -111,8 +112,7 @@ function Signup() {
               required
             />
           </div>
-
-          <button className='btnform'>
+          <button className={loading ? 'btnform btn-clicked' : 'btnform'} type='submit' disabled={loading}>
             {(!loading)
               ?
               <p>Sign Up</p>
@@ -121,11 +121,8 @@ function Signup() {
             }
           </button>
         </form>
-
         <p>Already have an Accout ? <Link to="/login">Login</Link> </p>
-
       </div>
-
       <div className="right-signup">
         <img src={signup} alt='' height={400} />
       </div>

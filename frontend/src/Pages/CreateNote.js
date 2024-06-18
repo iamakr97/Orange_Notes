@@ -38,12 +38,16 @@ function CreateNote() {
     }
     async function editorHandler(event) {
         event.preventDefault();
+        if(!isAuthenticated) {
+            toast.dismiss("Login to Save Notes");
+            return;
+        }
         if (content === '' || notesTitle === '') {
             toast.error('Add title and Desc. to SAVE');
             return;
         }
         setLoading(true);
-        const load = toast.loading("Loading...");
+        const load = toast.loading("Please Wait...");
         await axios.post(`${process.env.REACT_APP_SERVER_URL}/createnote`,
             { title: notesTitle, description: content, token },
             {
@@ -60,8 +64,7 @@ function CreateNote() {
             })
             .catch((error) => {
                 toast.error("Internal Server Error...");
-                console.log("error in creating new notes ");
-                console.log(error);
+                console.log("error in creating new notes : ",error);
             }).finally(() => {
                 setLoading(false);
                 toast.dismiss(load);
@@ -88,10 +91,9 @@ function CreateNote() {
                 tabIndex={1}
                 onBlur={newContent => setContent(newContent)}
                 onChange={newContent => { }}
-                // onChange={newContent => setContent(newContent)}
             />
             <div className="editorbtn">
-                <button className='savebtn' type='submit'>
+                <button className={loading ? 'savebtn btn-clicked': 'savebtn'} type='submit' disabled={loading}>
                     {(!loading)
                         ?
                         <p>Save</p>
@@ -99,7 +101,7 @@ function CreateNote() {
                         <ButtonLoading />
                     }
                 </button>
-                <button className='savebtn resetbtn' onClick={resetbtnHandler}>Reset</button>
+                <button className='savebtn resetbtn' onClick={resetbtnHandler} disabled={loading}>Reset</button>
             </div>
         </form>
     );
