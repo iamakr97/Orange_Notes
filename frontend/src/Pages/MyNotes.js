@@ -24,7 +24,7 @@ function MyNotes() {
   // defining function to fetch all notes ...
   async function fetchNotes() {
     setLoading(true);
-    axios.get(`${process.env.REACT_APP_SERVER_URL}/myNotes`,
+    await axios.get(`${process.env.REACT_APP_SERVER_URL}/myNotes`,
       {
         headers: {
           'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ function MyNotes() {
         setMyNotes(response.data.allNotes);
       })
       .catch((error) => {
-
+        toast.error("Internal Server Error");
       }).finally(() => setLoading(false));
   }
   // defining readHandler function to read the note
@@ -55,7 +55,7 @@ function MyNotes() {
   function deleteHandler(e, note) {
     e.preventDefault();
     const load = toast.loading("Please Wait...");
-    axios.delete(`https://orange-notes-a6en.onrender.com/api/v1/myNotes/${note._id}`,
+    axios.delete(`${process.env.REACT_APP_SERVER_URL}/myNotes/${note._id}`,
       {
         headers: {
           'Content-Type': 'application/json',
@@ -89,7 +89,7 @@ function MyNotes() {
         (<Loader />)
         :
         ((myNotes.length > 0)
-          ?
+          ? 
           myNotes.map((note) => {
             return <div key={note._id} className='myNotes-card'>
               {
