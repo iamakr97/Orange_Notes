@@ -36,16 +36,15 @@ function CreateNote() {
         setContent('');
         setNotesTitle('');
     }
-    function editorHandler(event) {
+    async function editorHandler(event) {
         event.preventDefault();
-
         if (content === '' || notesTitle === '') {
             toast.error('Add title and Desc. to SAVE');
             return;
         }
         setLoading(true);
         const load = toast.loading("Loading...");
-        axios.post(`${process.env.REACT_APP_SERVER_URL}/createnote`,
+        await axios.post(`${process.env.REACT_APP_SERVER_URL}/createnote`,
             { title: notesTitle, description: content, token },
             {
                 headers: {
@@ -70,7 +69,7 @@ function CreateNote() {
     }
 
     return (
-        <div className='editor-container'>
+        <form className='editor-container' onSubmit={editorHandler}>
             <h2 style={{ textAlign: "center", color: "rgb(253, 122, 46)", textDecoration: "underline", fontSize: "2rem" }}>Create Notes</h2>
             <div className='createNotesTitleContainer'>
                 <label htmlFor="notesTitle" id='createNotesTitle'>Title</label>
@@ -89,9 +88,10 @@ function CreateNote() {
                 tabIndex={1}
                 onBlur={newContent => setContent(newContent)}
                 onChange={newContent => { }}
+                // onChange={newContent => setContent(newContent)}
             />
             <div className="editorbtn">
-                <button className='savebtn' onClick={editorHandler}>
+                <button className='savebtn' type='submit'>
                     {(!loading)
                         ?
                         <p>Save</p>
@@ -101,7 +101,7 @@ function CreateNote() {
                 </button>
                 <button className='savebtn resetbtn' onClick={resetbtnHandler}>Reset</button>
             </div>
-        </div>
+        </form>
     );
 }
 
