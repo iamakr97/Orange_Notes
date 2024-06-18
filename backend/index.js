@@ -20,7 +20,7 @@ app.use(express.json());
 app.listen(PORT, () => {
     console.log(`Server is Running on PORT : ${PORT}`);
 })
-
+ 
 const dbConnect = require('./config/dbConnect');
 dbConnect();
 

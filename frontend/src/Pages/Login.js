@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import axios from 'axios';
 import signup from '../Assets/signup.jpg';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../redux/slices/auth';
 import ButtonLoading from '../Components/ButtonLoading';
 
 
 function Login() {
+  const { isAuthenticated } = useSelector(store => store.auth);
+  
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -16,7 +18,11 @@ function Login() {
     username: '',
     password: ''
   })
-
+  useEffect(()=>{
+    if(isAuthenticated) {
+      navigate('/');
+    }
+  }, []);
 
   function inputHandler(event) {
     setLoginData(prev => {
@@ -27,10 +33,12 @@ function Login() {
     })
   }
 
-  function loginHandler(event) {
+  async function loginHandler(event) {
     event.preventDefault();
+    
+    if(isAuthenticated) return;
     setLoading(true);
-    axios.post(`${process.env.REACT_APP_SERVER_URL}/login`,
+    await axios.post(`${process.env.REACT_APP_SERVER_URL}/login`,
       {
         username: loginData.username,
         password: loginData.password
@@ -40,11 +48,11 @@ function Login() {
       },
       withCredentials: true
     }).then((response) => {
-
       if (response.status === 200) {
         toast.success("LoggedIn Successfully");
-
-        dispatch(login(response.data))
+        dispatch(login(response.data));
+        window.localStorage.setItem("OrangeNotesToken", response.data.token);
+        window.localStorage.setItem("OrangeNotesUserName", response.data.user.name);
         setLoginData(
           {
             username: '',

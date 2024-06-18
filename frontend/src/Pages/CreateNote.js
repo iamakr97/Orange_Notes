@@ -15,7 +15,6 @@ function CreateNote() {
     const editor = useRef(null);
     const [notesTitle, setNotesTitle] = useState('');
     const [content, setContent] = useState('');
-    // checking is user is login or not
     const navigate = useNavigate();
     useEffect(() => {
         if (!isAuthenticated) {

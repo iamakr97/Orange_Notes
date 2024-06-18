@@ -10,8 +10,34 @@ import Dashboard from './Pages/Dashboard';
 import EditNote from './Pages/EditNote.js';
 import ReadNote from './Pages/ReadNote.js';
 import ErrorPage from './Pages/ErrorPage.js';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { login } from './redux/slices/auth.js';
+import { jwtDecode } from 'jwt-decode';
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const token = window.localStorage.getItem("OrangeNotesToken");
+    const name = window.localStorage.getItem("OrangeNotesUserName");
+    // console.log(token);
+    if (token) {
+      const decodedToken = jwtDecode(token);
+      const currentTime = Date.now() / 1000;
+      if (decodedToken.exp < currentTime) {
+        localStorage.removeItem('OrangeNotesToken');
+        localStorage.removeItem("OrangeNotesUserName");
+      } else {
+        const data = {
+          token,
+          user: {
+            name: name
+          }
+        }
+        dispatch(login(data));
+      }
+    }
+  }, [])
 
   return (
     <div className="App">

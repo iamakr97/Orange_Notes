@@ -12,10 +12,10 @@ function Header() {
   const { isAuthenticated, token } = useSelector(state => state.auth);
   const dispatch = useDispatch();
 
-  function logoutHandler(e) {
+  async function logoutHandler(e) {
     e.preventDefault();
     const load = toast.loading("Please Wait...");
-    axios.get('https://orange-notes-a6en.onrender.com/api/v1/logout',
+    await axios.get(`${process.env.REACT_APP_SERVER_URL}/logout`,
       {
         headers: {
           'Content-Type': 'application/json',
@@ -24,6 +24,8 @@ function Header() {
         withCredentials: true
       })
       .then((res) => {
+        window.localStorage.removeItem('OrangeNotesToken');
+        window.localStorage.removeItem('OrangeNotesUserName');
         dispatch(logout());
         navigate('/');
       })
@@ -60,9 +62,7 @@ function Header() {
               <Link to='/user/dashboard'>
                 <button className="btn headLogin">Dashboard</button>
               </Link>
-
               <button className="btn headSignup" onClick={logoutHandler} >Logout</button>
-
             </div>
           }
         </div>
