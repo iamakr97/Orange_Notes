@@ -41,7 +41,7 @@ function Header() {
     <div className='header-container'>
       <div className="header">
         <Link to="/" id='orangeNotesLogo'>
-          <img src={Orange_Notes} height={50} />
+          <img src={Orange_Notes} />
           <span id='OrangeNotes'>Orange Notes</span>
         </Link>
         <div>

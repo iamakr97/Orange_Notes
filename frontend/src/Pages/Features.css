@@ -1,11 +1,11 @@
 .feature-card-container {
     margin-top: 1rem;
     display: flex;
-    width: 1080px;
+    max-width: 1080px;
     margin: 1rem auto;
     flex-wrap: wrap;
     gap: 1.8rem;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .featureCard {

@@ -124,7 +124,7 @@ function Signup() {
         <p>Already have an Accout ? <Link to="/login">Login</Link> </p>
       </div>
       <div className="right-signup">
-        <img src={signup} alt='' height={400} />
+        <img src={signup} alt='signup Here' />
       </div>
     </div>
   );

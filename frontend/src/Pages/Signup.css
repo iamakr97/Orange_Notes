@@ -1,5 +1,5 @@
 .signup-container {
-    width: 1080px;
+    max-width: 1080px;
     margin: 1rem auto;
     display: flex;
     flex-wrap: wrap-reverse;
@@ -16,7 +16,9 @@
 .right-signup {
     width: 50%;
 }
-
+.right-signup img  {
+    height: 400px;
+}
 .left-signup form div {
     position: relative;
     display: flex;
@@ -55,4 +57,33 @@
     border-radius: 6px;
     margin: 1rem 0;
     cursor: pointer;
+}
+@media (max-width: 1080px) {
+    .signup-container {
+        width: 95%;
+    }
+    .right-signup img {
+        height: 300px;
+    }
+}
+@media (max-width: 768px) {
+    .right-signup img {
+        height: 250px;
+    }
+    .signup-container {
+        justify-content: center;
+        align-items: center;
+    }
+    .left-signup{
+        width: 100%;
+    }
+    .right-signup{
+        width: 100%;
+    }
+    .left-signup form div input{
+        width: 100%;
+    }
+    .btnform{
+        width: 100%;
+    }
 }

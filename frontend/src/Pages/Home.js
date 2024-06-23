@@ -22,11 +22,11 @@ function Home() {
   return (
     <div className='home-Page-Container'>
       <div className="homePage">
-
         <div className="home-left">
           <div>
             <p id='orangeNotesHero'>Welcome to <span>Orange Notes</span></p>
             <TextTransition
+            className='abc'
               springConfig={presets.wobbly}
               style={{ fontSize: "1.4rem", width: '80%', border: "2px", position: 'relative' }}
             >
@@ -60,9 +60,8 @@ function Home() {
             }
           </div>
         </div>
-
         <div className="home-right">
-          <img src={notesTaking} alt='' />
+          <img src={notesTaking} alt='Orange Notes' />
         </div>
 
       </div>
@@ -72,7 +71,7 @@ function Home() {
       </div>
       <Testimonials />
       <Footer />
-    </div >
+    </div>
   );
 }
 

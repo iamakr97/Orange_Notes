@@ -1,11 +1,13 @@
 .homePage {
-    width: 1080px;
+    max-width: 1080px;
     margin: 1rem auto;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .home-left {
     display: flex;
+    flex-wrap: wrap;
     width: 60%;
     gap: 4rem;
     flex-direction: column;
@@ -33,6 +35,7 @@
 
 .login-signup {
     display: flex;
+    flex-wrap: wrap;
     justify-content: left;
     align-items: center;
     gap: 1rem;
@@ -66,4 +69,54 @@
 
 .login:hover {
     background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+}
+
+@media (max-width: 1080px) {
+    .homePage {
+        max-width: 95%;
+    }
+    
+    .home-right img {
+        height: 18rem;
+    }
+
+    #orangeNotesHero {
+        font-size: 2.5rem;
+    }
+
+    .btn {
+        padding: 0.6rem;
+        font-size: 1rem;
+    }
+
+    .login {
+        padding: 0.6rem 0.8rem;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .home-left {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .home-left div p {
+        text-align: center;
+    }
+    .abc{
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .home-right {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .home-right img {
+        height: 15rem;
+        display: block;
+    }
 }

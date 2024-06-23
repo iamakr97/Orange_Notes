@@ -8,7 +8,7 @@
     align-items: center;
     margin: 0 auto;
     padding: 0.5rem 0;
-    width: 1080px;
+    max-width: 1080px;
 }
 
 #orangeNotesLogo {
@@ -16,6 +16,9 @@
     display: inline-flex;
     align-items: center;
     gap: 0.2rem;
+}
+#orangeNotesLogo img {
+    height: 50px;
 }
 
 #OrangeNotes {
@@ -33,4 +36,30 @@
 .headSignup {
     background-color: rgb(253, 122, 46);
     padding: 0.5rem 0.6rem;
+}
+@media (max-width: 1080px) {
+    .header{
+        width: 95%;
+    }
+}
+@media (max-width: 600px) {
+    .headLogin {
+        background-color: black;
+        color: white;
+        padding: 0.2rem 0.4rem;
+    }
+    
+    .headSignup {
+        background-color: rgb(253, 122, 46);
+        padding: 0.2rem 0.4rem;
+    }
+    #orangeNotesLogo img {
+        height: 30px;
+    }
+    
+    #OrangeNotes {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: rgb(253, 122, 46);
+    }
 }
