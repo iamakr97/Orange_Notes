@@ -1,5 +1,5 @@
 
-# Orange Notes
+# Orange Notes - Notes taking Applications
 
 ## Demo Link : [Orange Notes](https://orange-notes-dusky.vercel.app)
 ## https://orange-notes-dusky.vercel.app
